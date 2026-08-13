@@ -3,7 +3,7 @@ import { Button, Card } from "react-native-paper";
 
 export default function TabOneScreen() {
   return (
-    <View className="flex-1 p-4 justify-center">
+    <View className="flex-1 p-4">
       <Card className="my-2 p-2">
         <Card.Title title="Nuevo Hábito" subtitle="Progreso de hoy" />
         <Card.Content>
