@@ -1,11 +1,9 @@
-import FontAwesome from "@expo/vector-icons/FontAwesome";
-import { Link, Tabs } from "expo-router";
-import React from "react";
-import { Pressable } from "react-native";
-
 import Colors from "@/constants/Colors";
 import { useClientOnlyValue } from "@/src/components/useClientOnlyValue";
 import { useColorScheme } from "@/src/components/useColorScheme";
+import FontAwesome from "@expo/vector-icons/FontAwesome";
+import { Tabs } from "expo-router";
+import React from "react";
 
 // You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
 function TabBarIcon(props: {
@@ -27,32 +25,19 @@ export default function TabLayout() {
         headerShown: useClientOnlyValue(false, true),
       }}
     >
-      <Tabs.Screen
-        name="index"
-        options={{
-          title: "Buenos días (usuario)",
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-          headerRight: () => (
-            <Link href="/modal" asChild>
-              <Pressable>
-                {({ pressed }) => (
-                  <FontAwesome
-                    name="info-circle"
-                    size={25}
-                    color={Colors[colorScheme ?? "light"].text}
-                    style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
-                  />
-                )}
-              </Pressable>
-            </Link>
-          ),
-        }}
-      />
+      <Tabs.Screen name="index" />
       <Tabs.Screen
         name="two"
         options={{
           title: "Hola mundo",
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="modalCUHabit"
+        options={{
+          title: "Crear hábito",
+          href: null,
         }}
       />
     </Tabs>

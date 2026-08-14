@@ -1,4 +1,6 @@
-import "../global.css";
+import Colors from "@/constants/Colors";
+import { useColorScheme } from "@/src/components/useColorScheme";
+import { HabitProvider } from "@/src/context/HabitContext";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import {
   DarkTheme as NavigationDarkTheme,
@@ -9,16 +11,14 @@ import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
-import "react-native-reanimated";
-
-import { useColorScheme } from "@/src/components/useColorScheme";
-import Colors from "@/constants/Colors";
 import {
-  PaperProvider,
   MD3DarkTheme,
   MD3LightTheme,
+  PaperProvider,
   adaptNavigationTheme,
 } from "react-native-paper";
+import "react-native-reanimated";
+import "../global.css";
 
 const customPaperLightTheme = {
   ...MD3LightTheme,
@@ -53,7 +53,7 @@ const { LightTheme, DarkTheme } = adaptNavigationTheme({
 
 export {
   // Catch any errors thrown by the Layout component.
-  ErrorBoundary,
+  ErrorBoundary
 } from "expo-router";
 
 export const unstable_settings = {
@@ -90,16 +90,18 @@ export default function RootLayout() {
 
 function RootLayoutNav() {
   const colorScheme = useColorScheme();
-  const paperTheme = colorScheme === "dark" ? customPaperDarkTheme : customPaperLightTheme;
+  const paperTheme =
+    colorScheme === "dark" ? customPaperDarkTheme : customPaperLightTheme;
   const navTheme = colorScheme === "dark" ? DarkTheme : LightTheme;
 
   return (
     <PaperProvider theme={paperTheme}>
       <ThemeProvider value={navTheme}>
-        <Stack>
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-          <Stack.Screen name="modal" options={{ presentation: "modal" }} />
-        </Stack>
+        <HabitProvider>
+          <Stack>
+            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          </Stack>
+        </HabitProvider>
       </ThemeProvider>
     </PaperProvider>
   );
