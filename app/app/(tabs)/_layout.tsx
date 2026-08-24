@@ -1,5 +1,5 @@
 import Colors from "@/constants/Colors";
-import { useClientOnlyValue } from "@/src/components/useClientOnlyValue";
+import CustomHeader from "@/src/components/CustomHeader";
 import { useColorScheme } from "@/src/components/useColorScheme";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { Tabs } from "expo-router";
@@ -20,9 +20,7 @@ export default function TabLayout() {
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
-        // Disable the static render of the header on web
-        // to prevent a hydration error in React Navigation v6.
-        headerShown: useClientOnlyValue(false, true),
+        header: () => <CustomHeader />,
       }}
     >
       <Tabs.Screen name="index" />
