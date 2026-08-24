@@ -67,6 +67,7 @@ SplashScreen.preventAutoHideAsync();
 export default function RootLayout() {
   const [loaded, error] = useFonts({
     SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
+    BetterSoul: require("../assets/fonts/Better Soul.ttf"),
     ...FontAwesome.font,
   });
 
@@ -89,7 +90,7 @@ export default function RootLayout() {
 }
 
 function RootLayoutNav() {
-  const colorScheme = useColorScheme();
+  const { colorScheme } = useColorScheme();
   const paperTheme =
     colorScheme === "dark" ? customPaperDarkTheme : customPaperLightTheme;
   const navTheme = colorScheme === "dark" ? DarkTheme : LightTheme;
