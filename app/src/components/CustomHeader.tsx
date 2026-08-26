@@ -49,10 +49,7 @@ export default function CustomHeader() {
         className="flex flex-row justify-between items-center px-4 py-2 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800"
       >
         <View className="flex flex-col">
-          <Text
-            style={{ fontFamily: "BetterSoul" }}
-            className="text-xl font-medium text-slate-500 dark:text-slate-400 capitalize"
-          >
+          <Text className="text-xl font-medium text-slate-500 dark:text-slate-400 capitalize">
             {currentDate}
           </Text>
           <Text className="text-3xl font-bold text-slate-800 dark:text-slate-100">
