@@ -17,6 +17,7 @@ import {
   PaperProvider,
   adaptNavigationTheme,
 } from "react-native-paper";
+import { View } from "react-native";
 import "react-native-reanimated";
 import "../global.css";
 
@@ -95,14 +96,16 @@ function RootLayoutNav() {
   const navTheme = colorScheme === "dark" ? DarkTheme : LightTheme;
 
   return (
-    <PaperProvider theme={paperTheme}>
-      <ThemeProvider value={navTheme}>
-        <HabitProvider>
-          <Stack>
-            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-          </Stack>
-        </HabitProvider>
-      </ThemeProvider>
-    </PaperProvider>
+    <View className={`flex-1 ${colorScheme === "dark" ? "dark" : ""}`}>
+      <PaperProvider theme={paperTheme}>
+        <ThemeProvider value={navTheme}>
+          <HabitProvider>
+            <Stack>
+              <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+            </Stack>
+          </HabitProvider>
+        </ThemeProvider>
+      </PaperProvider>
+    </View>
   );
 }

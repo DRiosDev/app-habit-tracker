@@ -4,17 +4,22 @@ module.exports = {
   presets: [require("nativewind/preset")],
   theme: {
     extend: {
+      fontFamily: {
+        mono: ["SpaceMono"],
+        space: ["SpaceMono"],
+      },
       colors: {
-        background: {
-          light: "#fff",
-          dark: "#1e1846",
-          DEFAULT: "#fff",
-        },
-        tint: {
-          light: "#2f95dc",
-          dark: "#4d4af0",
-          DEFAULT: "#2f95dc",
-        },
+        primary: "var(--primary)",
+        "primary-badge": "var(--primary-badge)",
+        "progress-track": "var(--progress-track)",
+        screen: "var(--screen)",
+        card: "var(--card)",
+        "card-focus": "var(--card-focus)",
+        accent: "var(--accent)",
+        "text-main": "var(--text-main)",
+        "text-muted": "var(--text-muted)",
+        "text-on-primary": "var(--text-on-primary)",
+        "text-on-primary-muted": "var(--text-on-primary-muted)",
       },
     },
   },

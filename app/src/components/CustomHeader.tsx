@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { LayoutChangeEvent, StyleSheet, View } from "react-native";
-import { IconButton, Text } from "react-native-paper";
+import { LayoutChangeEvent, StyleSheet, Text, View } from "react-native";
+import { IconButton } from "react-native-paper";
 import { SafeAreaView } from "react-native-safe-area-context";
 import SettingsModal from "./modals/SettingsModal";
 
@@ -49,10 +49,13 @@ export default function CustomHeader() {
         className="flex flex-row justify-between items-center px-4 py-2 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800"
       >
         <View className="flex flex-col">
-          <Text className="text-xl font-medium text-slate-500 dark:text-slate-400 capitalize">
+          <Text
+            className="font-mono text-xs md:text-lg font-semibold text-slate-500 dark:text-slate-400 tracking-[0.2em] uppercase mb-0.5"
+            style={{ fontFamily: "SpaceMono" }}
+          >
             {currentDate}
           </Text>
-          <Text className="text-3xl font-bold text-slate-800 dark:text-slate-100">
+          <Text className="text-3xl md:text-4xl font-bold text-slate-800 dark:text-slate-100">
             Mis Hábitos
           </Text>
         </View>

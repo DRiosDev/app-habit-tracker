@@ -1,3 +1,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    --primary: #dbdbb4;
+    --primary-badge: #c4c498;
+    --progress-track: #b8b88a;
+    --screen: #f5f5f0;
+    --card: #ffffff;
+    --card-focus: #0f294a;
+    --accent: #15803d;
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+    --text-on-primary: #1e293b;
+    --text-on-primary-muted: #475569;
+  }
+
+  .dark {
+    --primary: #254b76;
+    --primary-badge: #1e3b5e;
+    --progress-track: #1e3a5a;
+    --screen: #0b1528;
+    --card: #162238;
+    --card-focus: #0f294a;
+    --accent: #4ade80;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --text-on-primary: #ffffff;
+    --text-on-primary-muted: #cbd5e1;
+  }
+}
