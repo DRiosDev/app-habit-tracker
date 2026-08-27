@@ -1,5 +1,16 @@
 export type HabitType = "binary" | "numeric" | "time";
 
+export type HabitColor =
+  | "blue"
+  | "green"
+  | "orange"
+  | "purple"
+  | "pink"
+  | "red"
+  | "yellow"
+  | "cyan"
+  | "indigo";
+
 export interface Habit {
   id: string;
   name: string;
@@ -7,7 +18,7 @@ export interface Habit {
   type: HabitType;
   targetValue: number;
   unit?: string;
-  colorTheme?: "green" | "blue" | "orange" | "purple";
+  colorTheme?: HabitColor;
   createdAt: string;
   completedDates: string[];
   history?: Record<string, number>;

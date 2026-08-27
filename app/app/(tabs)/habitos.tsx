@@ -82,13 +82,34 @@ export default function HabitosScreen() {
               const hasMultiStep = habit.type !== "binary" && habit.targetValue > 1;
               const stepDelta = habit.type === "time" ? 5 : 1;
 
-              const circleBgClass = isCompleted
-                ? "bg-emerald-200/80 dark:bg-emerald-900/60"
-                : habit.colorTheme === "orange"
-                ? "bg-orange-100 dark:bg-orange-950/60"
-                : habit.colorTheme === "green"
-                ? "bg-emerald-100 dark:bg-emerald-950/60"
-                : "bg-blue-100 dark:bg-blue-950/60";
+              const getCircleBg = () => {
+                if (isCompleted) return "bg-emerald-200/80 dark:bg-emerald-900/60";
+                switch (habit.colorTheme) {
+                  case "green": return "bg-emerald-100 dark:bg-emerald-950/60";
+                  case "orange": return "bg-orange-100 dark:bg-orange-950/60";
+                  case "purple": return "bg-purple-100 dark:bg-purple-950/60";
+                  case "pink": return "bg-pink-100 dark:bg-pink-950/60";
+                  case "red": return "bg-red-100 dark:bg-red-950/60";
+                  case "yellow": return "bg-amber-100 dark:bg-amber-950/60";
+                  case "cyan": return "bg-cyan-100 dark:bg-cyan-950/60";
+                  case "indigo": return "bg-indigo-100 dark:bg-indigo-950/60";
+                  default: return "bg-blue-100 dark:bg-blue-950/60";
+                }
+              };
+
+              const getIconColor = () => {
+                switch (habit.colorTheme) {
+                  case "green": return "#10b981";
+                  case "orange": return "#f97316";
+                  case "purple": return "#8b5cf6";
+                  case "pink": return "#ec4899";
+                  case "red": return "#ef4444";
+                  case "yellow": return "#eab308";
+                  case "cyan": return "#06b6d4";
+                  case "indigo": return "#6366f1";
+                  default: return "#3b82f6";
+                }
+              };
 
               const cardBgClass = isCompleted
                 ? "bg-emerald-500/10 dark:bg-emerald-950/20 border-emerald-500/30"
@@ -105,7 +126,7 @@ export default function HabitosScreen() {
                     className="flex-row items-center flex-1 mr-2"
                   >
                     <View
-                      className={`w-12 h-12 rounded-full items-center justify-center mr-4 ${circleBgClass}`}
+                      className={`w-12 h-12 rounded-full items-center justify-center mr-4 ${getCircleBg()}`}
                     >
                       {isCompleted ? (
                         <FontAwesome name="check" size={18} color="#15803d" />
@@ -113,13 +134,7 @@ export default function HabitosScreen() {
                         <FontAwesome
                           name="circle-o"
                           size={20}
-                          color={
-                            habit.colorTheme === "orange"
-                              ? "#f97316"
-                              : habit.colorTheme === "green"
-                              ? "#16a34a"
-                              : "#3b82f6"
-                          }
+                          color={getIconColor()}
                         />
                       )}
                     </View>

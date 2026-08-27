@@ -48,7 +48,7 @@ export default function CustomHeader() {
         edges={["top", "left", "right"]}
         className="flex flex-row justify-between items-center px-4 py-2 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800"
       >
-        <View className="flex flex-col">
+        <View className="flex flex-col gap-1">
           <Text
             className="font-mono text-xs md:text-lg font-semibold text-slate-500 dark:text-slate-400 tracking-[0.2em] uppercase mb-0.5"
             style={{ fontFamily: "SpaceMono" }}

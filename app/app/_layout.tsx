@@ -102,6 +102,14 @@ function RootLayoutNav() {
           <HabitProvider>
             <Stack>
               <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+              <Stack.Screen
+                name="modalCUHabit"
+                options={{
+                  presentation: "transparentModal",
+                  headerShown: false,
+                  animation: "fade",
+                }}
+              />
             </Stack>
           </HabitProvider>
         </ThemeProvider>

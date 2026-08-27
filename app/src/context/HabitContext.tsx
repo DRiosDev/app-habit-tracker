@@ -6,7 +6,7 @@ import {
   useEffect,
   useState,
 } from "react";
-import { Habit, HabitType } from "../types/Habit";
+import { Habit, HabitColor, HabitType } from "../types/Habit";
 
 interface HabitContextType {
   habits: Habit[];
@@ -17,7 +17,7 @@ interface HabitContextType {
     type?: HabitType,
     targetValue?: number,
     unit?: string,
-    colorTheme?: "green" | "blue" | "orange" | "purple",
+    colorTheme?: HabitColor,
     frequencyDays?: number[]
   ) => Promise<void>;
   updateHabit: (
@@ -27,7 +27,7 @@ interface HabitContextType {
     type?: HabitType,
     targetValue?: number,
     unit?: string,
-    colorTheme?: "green" | "blue" | "orange" | "purple",
+    colorTheme?: HabitColor,
     frequencyDays?: number[]
   ) => Promise<void>;
   deleteHabit: (id: string) => Promise<void>;
@@ -128,7 +128,7 @@ export function HabitProvider({ children }: { children: ReactNode }) {
     type: HabitType = "binary",
     targetValue: number = 1,
     unit: string = "",
-    colorTheme: "green" | "blue" | "orange" | "purple" = "blue",
+    colorTheme: HabitColor = "blue",
     frequencyDays: number[] = ALL_DAYS
   ) => {
     const newHabit: Habit = {
@@ -156,7 +156,7 @@ export function HabitProvider({ children }: { children: ReactNode }) {
     type: HabitType = "binary",
     targetValue: number = 1,
     unit: string = "",
-    colorTheme: "green" | "blue" | "orange" | "purple" = "blue",
+    colorTheme: HabitColor = "blue",
     frequencyDays: number[] = ALL_DAYS
   ) => {
     const updatedHabits = habits.map((habit) =>

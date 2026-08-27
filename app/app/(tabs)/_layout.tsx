@@ -43,13 +43,6 @@ export default function TabLayout() {
           href: null,
         }}
       />
-      <Tabs.Screen
-        name="modalCUHabit"
-        options={{
-          title: "Crear hábito",
-          href: null,
-        }}
-      />
     </Tabs>
   );
 }
